@@ -1,18 +1,14 @@
 networks:
   backend:
-  database:
 
-volumes:
-  database:
+#volumes:
+#  database:
 
 services:
   concordia:
     image: ghost:alpine
-    depends_on:
-      - db
     networks:
       - backend
-      - database
     ports:
       - 2368:2368
     restart: on-failure:5
@@ -22,19 +18,10 @@ services:
      - './content/media:/var/lib/ghost/content/media'
      - './content/settings:/var/lib/ghost/content/settings'
      - './content/themes:/var/lib/ghost/content/themes'
+     #- './test:/var/lib/ghost'
     environment:
-      - database__client=mysql
-      - database__connection__host=db
-      - database__connection__user=root
-      - database__connection__password=example
-      - database__connection__database=ghost
-
-  db:
-    image: mariadb
-    environment:
-      - MARIADB_ROOT_PASSWORD=example
-    networks:
-      - database  
-    volumes:
-      - database:/var/lib/mysql
-    restart: on-failure:5
+      - database__client=sqlite3
+      - database__connection__filename="content/data/ghost.db" 
+      - database__useNullAsDefault=true 
+      - database__debug=false 
+      - NODE_ENV=development 
