@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "built/waves.css"}}" />
 
     <title>{{meta_title}}</title>
 
@@ -13,46 +14,52 @@
     {{!-- Outputs important meta data and settings, should always be in <head> --}}
 
 </head>
-<body class="{{body_class}}">
-<div class="gh-viewport">
+<header id="gh-head" class="gh-head" style="background-color:green; height: 70px; margin: right 0px;display: flex; ">
+<div class="cs-cellcontainer" style="position: relative; background-color:purple; height:100%;width:30%;display: flex;">
+    <div class="cs-cell" style="background-color:orange; min-width: 20%;background-clip: border-box;min-height: 70px;"></div>
+    <div class="cs-logo" style="z-index: 1;background-color:transparent; position:absolute;top:50%; left:15%">
+        <img srcset="{{img_url @site.logo size="s"}}" sizes="" loading="lazy" style="max-height: 80px;"/>
+    </div>
+    <div class="cs-cell" style="background-color:blue; min-width: 20%;background-clip: border-box;min-height: 70px;"></div>
+    <div class="cs-cell" style="background-color:red; min-width: 20%;background-clip: border-box;min-height: 70px;"></div>
+   
+</div>
 
-<header id="gh-head" class="gh-head">
-    <nav class="gh-head-inner gh-container">
 
-        <div class="gh-head-brand">
-            <a class="gh-head-logo" href="{{@site.url}}">
-                {{#if @site.logo}}
-                    <img src="{{@site.logo}}" alt="{{@site.title}}" />
-                {{else}}
-                    {{@site.title}}
-                {{/if}}
-            </a>
-            <a class="gh-burger" role="button">
-                <div class="gh-burger-box">
-                    <div class="gh-burger-inner"></div>
-                </div>
-            </a>
+<nav class="gh-head-inner gh-container">
+    <a class="gh-burger" role="button">
+        <div class="gh-burger-box">
+            <div class="gh-burger-inner"></div>
         </div>
-        <div class="gh-head-menu">
-            {{navigation}}
-        </div>
-        <div class="gh-head-actions">
-            <div class="gh-head-actions-list">
-                {{#if @site.facebook}}
-                <a href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
-                {{/if}}
-                {{#if @site.twitter}}
-                <a href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-                {{/if}}
-                <a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
-            </div>
-        </div>
-    </nav>
+    </a>
+    <div class="gh-head-menu" style="padding-left: 2vw;">
+                {{navigation}}
+    </div>
+</nav>
 </header>
+<div>
+ <img srcset="{{img_url @site.cover_image size="xl"}}"
+    sizes="(min-width: 100%)"
+    loading="lazy"
+    src="{{img_url feature_image size="xl"}}"
+    alt="{{#if @site.cover_image_alt}}{{@site.cover_image_alt}}{{else}}{{title}}{{/if}}"/>
+</div>
+<body class="{{body_class}}">
+
+    <div>
+        What is Lorem Ipsum?
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+    </div>
+    <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+ 
 
 <main class="gh-main">
 
-    {{{body}}}
+    {{!-- {{{body}}} --}}
     {{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
 
 </main>
@@ -63,7 +70,7 @@
             {{navigation}}
         </div>
         <div class="gh-foot-meta">
-            Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+        
         </div>
     </div>
 </footer>
@@ -109,6 +116,7 @@ $(document).ready(function () {
 {{/is}}
 
 {{ghost_foot}}
+
 {{!-- Outputs important scripts - should always be included before closing body tag --}}
 
 </body>

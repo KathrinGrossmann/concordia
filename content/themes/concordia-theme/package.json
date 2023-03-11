@@ -85,5 +85,9 @@
                 "width": 2000
             }
         }
+    },
+    "dependencies": {
+        "gsap": "^3.11.4",
+        "wavify": "^1.0.0"
     }
 }

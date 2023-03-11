@@ -2631,6 +2631,11 @@
   "resolved" "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.10.tgz"
   "version" "4.2.10"
 
+"gsap@^3.11.4":
+  "integrity" "sha512-McHhEguHyExMMnjqKA8G+7TvxmlKQGMbjgwAilnFe1e4id7V/tFveRQ2YMZhTYu0oxHGWvbPltdVYQOu3z1SCA=="
+  "resolved" "https://registry.npmjs.org/gsap/-/gsap-3.11.4.tgz"
+  "version" "3.11.4"
+
 "gscan@4.34.0":
   "integrity" "sha512-uITKioTZHoWatKKlV+yI963joF8+shUwaqM+A7DJng5H251YTfrW3cAiCrHyedGhJckrN7XPeEnbpNbTDoWCiw=="
   "resolved" "https://registry.npmjs.org/gscan/-/gscan-4.34.0.tgz"
@@ -6113,6 +6118,11 @@
     "cloneable-readable" "^1.0.0"
     "remove-trailing-separator" "^1.0.1"
     "replace-ext" "^1.0.0"
+
+"wavify@^1.0.0":
+  "integrity" "sha512-fTF3xWaCjKsQjRptpm0xo3DU7UK3dQu1+N5LPqwhrtXe1ZhVOBoc9krCByYoH5UBH35NLGZQsyBcHQamMPAc3Q=="
+  "resolved" "https://registry.npmjs.org/wavify/-/wavify-1.0.0.tgz"
+  "version" "1.0.0"
 
 "websocket-driver@>=0.5.1":
   "integrity" "sha512-b17KeDIQVjvb0ssuSDF2cYXSg2iztliJ4B9WdsuB6J952qCPKmnVq4DyW5motImXHDC1cBT/1UezrJVsKw5zjg=="
