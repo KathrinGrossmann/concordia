@@ -1,0 +1,2 @@
+:root{--navy:#062549;--cyan:#a1daf8;--orange:#fab322;--light_gray:#e3e3e3;--dark_gray:#6d7c84}.cs-cellcontainer{background-color:var(--dark_gray);display:flex;height:100%;position:relative;width:30%}.cs-cell{background-clip:border-box;min-height:70px;min-width:20%}.cs-cell:first-child{background-color:var(--orange)}.cs-cell:nth-child(3){background-color:var(--cyan)}.cs-logo{background-color:transparent;left:15%;position:absolute;top:50%;z-index:1}.gh-head{background-color:var(--navy);display:flex;height:70px;margin:right 0}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,45 @@
+:root {
+    --navy:#062549;
+    --cyan:#a1daf8;
+    --orange:#fab322;
+    --light_gray:#e3e3e3;
+    --dark_gray:#6d7c84;
+
+}
+
+.cs-cellcontainer{
+    background-color: var(--dark_gray);
+    position: relative;
+    height:100%;
+    width:30%;
+    display: flex;
+}
+
+.cs-cell{
+    min-width: 20%;
+    background-clip:
+    border-box;
+    min-height: 70px;
+}
+
+.cs-cell:nth-child(1) {
+    background-color: var(--orange);
+    }
+.cs-cell:nth-child(3) {
+    background-color: var(--cyan);
+    }
+    
+.cs-logo{
+    z-index: 1;
+    background-color:transparent; 
+    position:absolute;
+    top:50%;
+    left:15%
+}
+
+.gh-head{
+    background-color: var(--navy);
+    height: 70px;
+    margin: right 0px;
+    display: flex; 
+}

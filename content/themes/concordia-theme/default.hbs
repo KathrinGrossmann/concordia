@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset "built/waves.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "built/main.css"}}" />
 
     <title>{{meta_title}}</title>
 
@@ -14,15 +14,14 @@
     {{!-- Outputs important meta data and settings, should always be in <head> --}}
 
 </head>
-<header id="gh-head" class="gh-head" style="background-color:green; height: 70px; margin: right 0px;display: flex; ">
-<div class="cs-cellcontainer" style="position: relative; background-color:purple; height:100%;width:30%;display: flex;">
-    <div class="cs-cell" style="background-color:orange; min-width: 20%;background-clip: border-box;min-height: 70px;"></div>
-    <div class="cs-logo" style="z-index: 1;background-color:transparent; position:absolute;top:50%; left:15%">
+<header id="gh-head" class="gh-head" style="">
+<div class="cs-cellcontainer">
+    <div class="cs-cell"></div>
+    <div class="cs-logo">
         <img srcset="{{img_url @site.logo size="s"}}" sizes="" loading="lazy" style="max-height: 80px;"/>
     </div>
-    <div class="cs-cell" style="background-color:blue; min-width: 20%;background-clip: border-box;min-height: 70px;"></div>
-    <div class="cs-cell" style="background-color:red; min-width: 20%;background-clip: border-box;min-height: 70px;"></div>
-   
+    <div class="cs-cell"></div>
+    
 </div>
 
 
@@ -64,7 +63,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 </main>
 
-<footer class="gh-foot">
+<footer class="gh-foot" style="background-color:red;">
     <div class="gh-container">
         <div class="gh-foot-menu">
             {{navigation}}
