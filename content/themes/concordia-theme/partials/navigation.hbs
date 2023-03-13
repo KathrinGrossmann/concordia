@@ -1,8 +1,8 @@
-<div class="my-fancy-nav-wrapper">
+<div class="cs-nav-container" style="margin-top: 20px;;">
     <ul class="nav">
         <!-- Loop through the navigation items -->
         {{#foreach navigation}}
-        <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a href="{{url absolute="true"}}" style="text-decoration: none; font-size:3vw; color:white">{{label}}</a></li>
+        <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a href="{{url absolute="true"}}" style="">{{label}}</a></li>
         {{/foreach}}
         <!-- End the loop -->
     </ul>
