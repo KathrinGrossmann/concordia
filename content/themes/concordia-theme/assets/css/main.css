@@ -42,4 +42,13 @@
     height: 70px;
     margin: right 0px;
     display: flex; 
+    font-family: var(--font-sans-serif);
+}
+
+.nav > li{
+    text-decoration: none;
+    font-size:25px;
+    font-weight: 300;
+    color:var(--light_gray);
+    font-family: sans-serif;
 }
