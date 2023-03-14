@@ -1,12 +1,13 @@
 networks:
   backend:
 
-#volumes:
-#  database:
+volumes:
+  ghost-db:
 
 services:
   concordia:
-    image: ghost:alpine
+    # image: ghost:alpine
+    build: .
     networks:
       - backend
     ports:
@@ -18,10 +19,14 @@ services:
      - './content/media:/var/lib/ghost/content/media'
      - './content/settings:/var/lib/ghost/content/settings'
      - './content/themes:/var/lib/ghost/content/themes'
-     #- './test:/var/lib/ghost'
+     - './config.json:/var/lib/ghost/config.development.json'
+     - 'ghost-db:/var/lib/ghost/content/data'
+    env_file:
+      # TODO cp ghost.env -> .ghost.env and adjust keys
+      - ./.ghost.env
     environment:
       - database__client=sqlite3
-      - database__connection__filename="content/data/ghost.db" 
-      - database__useNullAsDefault=true 
-      - database__debug=false 
-      - NODE_ENV=development 
+      - database__connection__filename="content/data/ghost.db"
+      - database__useNullAsDefault=true
+      - database__debug=false
+      - NODE_ENV=development
