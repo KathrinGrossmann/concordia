@@ -30,3 +30,11 @@ services:
       - database__useNullAsDefault=true
       - database__debug=false
       - NODE_ENV=development
+
+  # TO debug the database
+  sqlitebrowser:
+    image: lscr.io/linuxserver/sqlitebrowser:latest
+    ports:
+      - 3000:3000
+    volumes:
+      - 'ghost-db:/config'
