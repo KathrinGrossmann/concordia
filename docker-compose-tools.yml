@@ -1,0 +1,38 @@
+networks:
+  backend:
+
+volumes:
+  # concordia compose needs to be started
+  ghost-db:
+    external: true
+    name: concordia_ghost-db
+  minio-data:
+
+services:
+  concordia:
+    extends:
+      file: docker-compose.yml
+      service: concordia
+
+  # TO debug the database
+  sqlitebrowser:
+    image: lscr.io/linuxserver/sqlitebrowser:latest
+    depends_on:
+      - concordia
+    ports:
+      - 3000:3000
+    volumes:
+      - 'ghost-db:/database'
+
+  minio:
+    image: minio/minio:latest
+    expose:
+      - 9000
+      - 9001
+    volumes:
+      - minio-data:/export
+    command: server /export --console-address ":9001"
+    environment:
+      - MINIO_NAME=MinioTest
+      - MINIO_ROOT_USER=Administator
+      - MINIO_ROOT_PASSWORD=ChangeMe!

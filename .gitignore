@@ -5,3 +5,4 @@ media
 dist
 content/data/ghost.db
 content/themes/casper
+.ghost.env
