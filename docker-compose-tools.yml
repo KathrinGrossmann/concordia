@@ -1,0 +1,17 @@
+networks:
+  backend:
+
+volumes:
+  # concordia compose needs to be started 
+  ghost-db:
+    external: true
+    name: concordia_ghost-db
+
+services:
+  # TO debug the database
+  sqlitebrowser:
+    image: lscr.io/linuxserver/sqlitebrowser:latest
+    ports:
+      - 3000:3000
+    volumes:
+      - 'ghost-db:/database'
