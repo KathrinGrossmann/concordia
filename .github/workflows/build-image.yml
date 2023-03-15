@@ -1,0 +1,35 @@
+name: Docker Image CI
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+on:
+  push:
+    branches: 
+      - main
+  pull_request:
+    branches: 
+      - main
+
+jobs:
+  
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set time
+      run: echo "BUILD_DATE=$(date +%s)" >> $GITHUB_ENV
+    - name: Checkout
+      uses: actions/checkout@v3.4.0
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.BUILD_DATE }}
+    - name: Test the Docker image
+      run: docker run -d --name some-ghost -e NODE_ENV=development -p 2368:2368 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.BUILD_DATE }}
+    - name: Wait For Response
+      uses: nev7n/wait_for_response@v1.0.1
+      with:
+        url: 'http://localhost:2368/'
+        responseCode: 200
+        timeout: 60000
+        interval: 500
+
