@@ -30,6 +30,6 @@ jobs:
       with:
         url: 'http://localhost:2368/'
         responseCode: 200
-        timeout: 2000
+        timeout: 60000
         interval: 500
 
