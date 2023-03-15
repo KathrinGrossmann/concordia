@@ -9,6 +9,11 @@ on:
       - main
 
 jobs:
+  variables:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Show variables
+      run: echo ${{ env.REGISTRY }} ${{ github.actor }} ${{ secrets.GITHUB_TOKEN }}
 
   build:
     runs-on: ubuntu-latest
