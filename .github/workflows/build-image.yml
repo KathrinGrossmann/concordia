@@ -3,7 +3,6 @@ name: Docker Image CI
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  BUILD_DATE: $(date +%s)
 
 on:
   push:
@@ -18,7 +17,10 @@ jobs:
   build_and_test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3.4.0
+    - name: Set time
+      run: echo "BUILD_DATE=$(date +%s)" >> $GITHUB_ENV
+    - name: Checkout
+      uses: actions/checkout@v3.4.0
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.BUILD_DATE }}
     - name: Test the Docker image
